@@ -344,10 +344,11 @@ export function objectToTableTree(obj, localize, allRows = [], level = 0) {
       } else {
         objType = 'object';
       }
+	  const objDescription = obj[key]['::description'];
       const objRow = [
         { text: key, style: ['small', 'b'], margin: [leftMargin, 0, 0, 0] },
         { text: objType, style: ['small', 'mono', 'lightGray'], margin: 0 },
-        { text: '', margin: 0 },
+        { text: objDescription || '', style: ['sub', 'lightGray'], margin: 0 },
       ];
       allRows.push(objRow);
       if (obj[key]['::type'] === 'array') {
